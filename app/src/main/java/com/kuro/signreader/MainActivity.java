@@ -7,6 +7,7 @@ import android.content.pm.PackageManager;
 import android.content.pm.Signature;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.util.Base64;
 import android.view.View;
 import android.widget.Button;
@@ -89,7 +90,7 @@ public class MainActivity extends Activity {
                     StringBuilder sb = new StringBuilder();
                     sb.append(resultBase64.getText().toString() + "\n");
                     sb.append(resultCpp.getText().toString() + "\n");
-                    FileOutputStream fos = new FileOutputStream(new File("/sdcard", path));
+                    FileOutputStream fos = new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), path));
                     fos.write(sb.toString().getBytes());
                     fos.close();
                     Toast.makeText(MainActivity.this, "Saved to " + path, Toast.LENGTH_SHORT).show();
