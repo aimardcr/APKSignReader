@@ -89,7 +89,7 @@ public class MainActivity extends Activity {
                     StringBuilder sb = new StringBuilder();
                     sb.append(resultBase64.getText().toString() + "\n");
                     sb.append(resultCpp.getText().toString() + "\n");
-                    FileOutputStream fos = new FileOutputStream(new File("/sdcard", path));
+                    FileOutputStream fos = new FileOutputStream(new File(Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS), path));
                     fos.write(sb.toString().getBytes());
                     fos.close();
                     Toast.makeText(MainActivity.this, "Saved to " + path, Toast.LENGTH_SHORT).show();
